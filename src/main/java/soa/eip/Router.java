@@ -13,6 +13,11 @@ public class Router extends RouteBuilder {
 					+ "consumerSecret={{twitter.consumerSecret}}&"
 					+ "accessToken={{twitter.accessToken}}&"
 					+ "accessTokenSecret={{twitter.accessTokenSecret}}");
+        from("direct:tweet")
+                .to("twitter://timeline/user?consumerKey={{twitter.consumerKey}}&"
+                        + "consumerSecret={{twitter.consumerSecret}}&"
+                        + "accessToken={{twitter.accessToken}}&"
+                        + "accessTokenSecret={{twitter.accessTokenSecret}}");
 	}
 
 }

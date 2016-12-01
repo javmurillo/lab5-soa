@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	registerSearch();
+	registerTweet();
 	registerTemplate();
 });
 
@@ -9,6 +10,15 @@ function registerSearch() {
 		$.get($(this).attr('action'), {q: $("#q").val()}, function(data) {
 			$("#resultsBlock").html(Mustache.render(template, data));
 		});	
+	});
+}
+
+function registerTweet() {
+	$("#tweet").submit(function(ev){
+		event.preventDefault();
+		$.get($(this).attr('action'), {q: $("#q").val()}, function(data) {
+			$("#resultsBlock").html(Mustache.render(template, data));
+		});
 	});
 }
 
